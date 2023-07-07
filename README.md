@@ -6,7 +6,7 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
-This is a project that returns a mood picture of your command.
+This is a project that returns a random mood picture of your command.
 
 
 Please be patient to use this application.
