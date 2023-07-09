@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,7 +8,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,11 +23,22 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-class MainMaterial extends StatelessWidget {
+class MainMaterial extends StatefulWidget {
   const MainMaterial({Key? key}) : super(key: key);
 
-  var name = "1";
+  @override
+  State<MainMaterial> createState() => _MainMaterialState();
+}
+
+class _MainMaterialState extends State<MainMaterial> {
+  var myCurrentMood = 0;
+
+  void generateRandomNumber(){
+    setState(() {
+      myCurrentMood = Random().nextInt(5);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,7 +48,7 @@ class MainMaterial extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(50.0),
-                child: Image.asset("images/$name.png"),
+                child: Image.asset("images/$myCurrentMood.png"),
               ),
             ),
           ],
@@ -44,7 +56,7 @@ class MainMaterial extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 20.0),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: generateRandomNumber,
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
