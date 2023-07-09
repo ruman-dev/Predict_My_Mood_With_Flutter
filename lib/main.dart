@@ -35,7 +35,7 @@ class _MainMaterialState extends State<MainMaterial> {
 
   void generateRandomNumber(){
     setState(() {
-      myCurrentMood = Random().nextInt(5);
+      myCurrentMood = Random().nextInt(7);
     });
   }
 
